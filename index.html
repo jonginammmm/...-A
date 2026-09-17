@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Wave Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateX(65deg) rotateY(0deg);
+            animation: animateContainer 10s linear infinite;
+        }
+
+        @keyframes animateContainer {
+            0% {
+                transform: rotateX(65deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(65deg) rotateZ(360deg);
+            }
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(20px * var(--i));
+            height: calc(20px * var(--i));
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-bottom-color: hsl(calc(20deg * var(--i)), 100%, 50%);
+            border-right-color: hsl(calc(20deg * var(--i)), 100%, 50%);
+            transform: translate(-50%, -50%) translateZ(calc(15px * var(--i)));
+            animation: animateCircle 3s ease-in-out infinite alternate;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        @keyframes animateCircle {
+            0% {
+                transform: translate(-50%, -50%) translateZ(calc(-15px * var(--i)));
+            }
+            100% {
+                transform: translate(-50%, -50%) translateZ(calc(15px * var(--i)));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="circle" style="--i:0;"></div>
+        <div class="circle" style="--i:1;"></div>
+        <div class="circle" style="--i:2;"></div>
+        <div class="circle" style="--i:3;"></div>
+        <div class="circle" style="--i:4;"></div>
+        <div class="circle" style="--i:5;"></div>
+        <div class="circle" style="--i:6;"></div>
+        <div class="circle" style="--i:7;"></div>
+        <div class="circle" style="--i:8;"></div>
+        <div class="circle" style="--i:9;"></div>
+        <div class="circle" style="--i:10;"></div>
+        <div class="circle" style="--i:11;"></div>
+        <div class="circle" style="--i:12;"></div>
+        <div class="circle" style="--i:13;"></div>
+        <div class="circle" style="--i:14;"></div>
+        <div class="circle" style="--i:15;"></div>
+    </div>
+
+</body>
+</html>
